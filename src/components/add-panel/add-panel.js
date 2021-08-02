@@ -5,10 +5,6 @@ export default class AddPanel extends Component {
         message: ''
     }
 
-    constructor(props) {
-        super(props);
-    }
-
     handleChange = (e) => {
         this.setState({message: e.target.value})
     }
@@ -27,7 +23,7 @@ export default class AddPanel extends Component {
         const {handleChange, handleSubmit} = this;
         return (
             <div className="add-panel row justify-content-center">
-                <form className='col-sm-4' data-dashlane-rid="8ae3f8bcca604e53" data-form-type="ot">
+                <form className='col-md-6' data-dashlane-rid="8ae3f8bcca604e53" data-form-type="ot">
                     <fieldset>
                         <legend>Пост</legend>
                         <div className="form-group">

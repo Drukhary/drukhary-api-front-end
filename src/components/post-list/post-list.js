@@ -1,19 +1,29 @@
 import React from "react";
 import Post from "../post";
 
-const PostList = ({posts}) => {
-    const listItems = posts.map(post => {
-        const {message,images} = post;
+const PostList = (props) => {
+    const listItemsRendered = props.posts.map((post, index) => {
+        const {title, description, date_created, keywords} = post.data;
+        const {image} = post;
         return (
-        <div className="list-group-item list-group-item-action flex-column align-items-start">
-            <Post message={message} images={images}/>
-        </div>
+            // <li id={index} className="list-group-item list-group-item-action flex-column align-items-start">
+                <Post
+                    index={index}
+                    title={title}
+                    images={[image]}
+                    description={description}
+                    dateCreated={date_created}
+                    keywords={keywords}
+                />
+            //</li>
         )
     });
     return (
-            <div className="post-list list-group justify-content-center">
-                {listItems}
-            </div>
+        <div className='justify-content-center row'>
+            <ul className="post-list list-group col-md-8">
+                {Array.isArray(listItemsRendered) && listItemsRendered.length ? listItemsRendered : null}
+            </ul>
+        </div>
     )
 }
 export default PostList;
